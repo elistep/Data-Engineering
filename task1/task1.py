@@ -48,9 +48,6 @@ for book in items:
     if book['description'] != 'small':
         filtered_items.append(book)
 
-with open("result_filtered_1.json", "w", encoding="utf-8") as f:
-   f.write(json.dumps(filtered_items, ensure_ascii=False))
-
 print(len(items))
 print(len(filtered_items))
 
@@ -71,3 +68,14 @@ f1 = collections.Counter(author)
 result2.append(f1)
 
 print(result2)
+
+with open("result_filtered_1.json", "w", encoding="utf-8") as f:
+   f.write(json.dumps(filtered_items, ensure_ascii=False))
+
+with open("math_1.json", "w", encoding="utf-8") as f:
+       f.write(json.dumps(result, ensure_ascii=False))
+
+with open("frequency_1.json", "w", encoding="utf-8") as f:
+    f.write(json.dumps(result2, ensure_ascii=False))
+
+
