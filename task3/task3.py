@@ -43,10 +43,6 @@ for constellation in items:
     if constellation['constellation'] != 'Лев':
         filtered_items.append(constellation)
 
-#записываем отфильтрованные данные в json
-with open("result_filtered_3.json", "w", encoding="utf-8") as f:
-   f.write(json.dumps(filtered_items, ensure_ascii=False))
-
 #print(len(items))
 #print(len(filtered_items))
 
@@ -58,7 +54,7 @@ pd.set_option('display.float_format', '{:.1f}'.format)
 stats = df['radius'].agg(['max', 'min', 'mean', 'median', 'std']).to_dict()
 result.append(stats)
 
-print(result)
+#print(result)
 
 result2 = []
 
@@ -66,4 +62,16 @@ constellation = [item['constellation'] for item in items]
 f1 = collections.Counter(constellation)
 result2.append(f1)
 
-print(result2)
+#print(result2)
+
+#записываем отфильтрованные данные в json
+with open("result_filtered_3.json", "w", encoding="utf-8") as f:
+   f.write(json.dumps(filtered_items, ensure_ascii=False))
+
+with open("math.json", "w", encoding="utf-8") as f:
+   f.write(json.dumps(result, ensure_ascii=False))
+
+with open("frequency.json", "w", encoding="utf-8") as f:
+   f.write(json.dumps(result2, ensure_ascii=False))
+
+
