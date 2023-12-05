@@ -55,10 +55,6 @@ for color in items:
      if color['color'] != 'Красный':
          filtered_items.append(color)
 
-#записываем отфильтрованные данные в json
-with open("result_filtered_4.json", "w", encoding="utf-8") as f:
-   f.write(json.dumps(filtered_items, ensure_ascii=False))
-
 print(len(items))
 print(len(filtered_items))
 
@@ -70,7 +66,7 @@ pd.set_option('display.float_format', '{:.1f}'.format)
 stats = df['reviews'].agg(['max', 'min', 'mean', 'median', 'std']).to_dict()
 result.append(stats)
 
-print(result)
+#print(result)
 
 result2 = []
 
@@ -78,4 +74,14 @@ material = [item['material'] for item in items]
 f1 = collections.Counter(material)
 result2.append(f1)
 
-print(result2)
+#print(result2)
+
+#записываем отфильтрованные данные в json
+with open("result_filtered_4.json", "w", encoding="utf-8") as f:
+   f.write(json.dumps(filtered_items, ensure_ascii=False))
+
+with open("math_4.json", "w", encoding="utf-8") as f:
+   f.write(json.dumps(result, ensure_ascii=False))
+
+with open("frequency_4.json", "w", encoding="utf-8") as f:
+   f.write(json.dumps(result2, ensure_ascii=False))
